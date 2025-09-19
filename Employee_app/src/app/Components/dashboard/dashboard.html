@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <!-- Greeting -->
+  <div class="mb-4">
+    <h2>Welcome, {{ userName }}!</h2>
+    <p>Use the dashboard to manage your employees.</p>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <div class="card text-white bg-primary h-100">
+        <div class="card-body">
+          <h5 class="card-title">Total Employees</h5>
+          <p class="card-text display-6">{{ totalEmployees }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Add more cards here if needed -->
+  </div>
+
+  <!-- Quick Action Buttons -->
+  <div class="mt-4 d-flex gap-2">
+    <button class="btn btn-primary" (click)="goToEmployees()">View Employees</button>
+    <button class="btn btn-success" routerLink="/dashboard">Dashboard</button>
+  </div>
+</div>

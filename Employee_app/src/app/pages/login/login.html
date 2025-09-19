@@ -1,0 +1,75 @@
+
+<div class="login-container">
+  <div class="form-box">
+    <h2 *ngIf="toggleForm">Sign Up</h2>
+    <h2 *ngIf="!toggleForm">Login</h2>
+
+    <!-- Sign Up Form -->
+
+
+    <!-- <form *ngIf="toggleForm" (ngSubmit)="onRegister()">
+      <div class="input-group">
+        <label>Full Name</label>
+        <input type="text" [(ngModel)]="registerObj.fullname" name="fullname" placeholder="Enter your fullname" required>
+      </div> -->
+
+      <form *ngIf="toggleForm" #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+  <div class="input-group">
+    <label>Full Name</label>
+    <input type="text" [(ngModel)]="registerObj.fullname" name="fullname" placeholder="Enter your fullname" required>
+    <div *ngIf="registerForm.submitted && !registerObj.fullname" style="color:red">
+      Full Name is required
+    </div>
+  </div>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="registerObj.Useremail" name="Useremail" placeholder="Enter your email" required>
+        <div *ngIf="registerForm.submitted && !registerObj.Useremail" style="color: red;">
+          Email is Required
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" [(ngModel)]="registerObj.Password" name="Password" placeholder="Enter your password" required>
+        <div *ngIf="registerForm.submitted && !registerObj.password" style="color: red;">
+          Password is Required
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Mobile</label>
+        <input type="text" [(ngModel)]="registerObj.mobileno" name="mobileno" placeholder="Enter your mobile" required>
+        <div *ngIf="registerForm.submitted && !registerObj.password" style="color:red">
+          Mobile is Required
+        </div>
+      </div>
+
+      <button type="submit">Sign Up</button>
+      <p class="toggle-text">Already have an account? <a (click)="toggleForm=false">Login here</a></p>
+    </form>
+
+    <!-- Login Form -->
+    <form *ngIf="!toggleForm" #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="loginObj.Useremail" name="Useremail" placeholder="Enter your email" required>
+        <div *ngIf="loginForm.submitted && !loginObj.Useremail" style="color: red;">
+          Username is required
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" [(ngModel)]="loginObj.Password" name="Password" placeholder="Enter your password" required>
+        <div *ngIf="loginForm.submitted && !loginObj.Useremail" style="color: red;">
+          Password is required
+        </div>
+      </div>
+
+      <button type="submit">Login</button>
+      <p class="toggle-text">New here? <a (click)="toggleForm=true">Sign Up</a></p>
+    </form>
+  </div>
+</div>
